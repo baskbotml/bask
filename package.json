@@ -1,0 +1,33 @@
+{
+  "name": "bask-bot",
+  "version": "1.0.0",
+  "description": "A discord music bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SrIzan10/bask-bot.git"
+  },
+  "keywords": [
+    "bask",
+    "discord",
+    "bot",
+    "spanish",
+    "musicbot"
+  ],
+  "author": "Sr Izan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SrIzan10/bask-bot/issues"
+  },
+  "homepage": "https://github.com/SrIzan10/bask-bot#readme",
+  "dependencies": {
+    "@sern/handler": "^1.0.1",
+    "discord.js": "^14.0.2",
+    "dotenv": "^16.0.1",
+    "erela.js": "^2.3.3"
+  }
+}
