@@ -1,8 +1,9 @@
 import { commandModule, CommandType } from '@sern/handler';
+import { publish } from '../src/plugins/publish';
 
 export default commandModule({
 	type: CommandType.Both,
-	plugins: [],
+	plugins: [publish()],
 	description: 'A ping command',
 	//alias : [],
 	execute: async (ctx, args) => {

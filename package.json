@@ -25,9 +25,10 @@
   },
   "homepage": "https://github.com/SrIzan10/bask-bot#readme",
   "dependencies": {
-    "@sern/handler": "^1.0.1",
+    "@sern/handler": "^1.1.0",
+    "discord-player": "^5.3.1",
     "discord.js": "^14.0.2",
     "dotenv": "^16.0.1",
-    "erela.js": "^2.3.3"
+    "i18next": "^21.9.1"
   }
 }
