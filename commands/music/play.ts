@@ -11,20 +11,17 @@ export default commandModule({
 		{
 			name: 'cancion',
 			description: 'nombre de la cancion o url',
-			type: ApplicationCommandOptionType.String
+			type: ApplicationCommandOptionType.String,
+			required: true
 		}
 	],
 	//alias : [],
 	execute: async (ctx: Context, [type, args]) => {
-		let query;
-		const ifSlashOrText = type as string
-		if (ifSlashOrText === 'text') {
-			console.log('text')
-			await ctx.reply(i18next.t('pingCommand.pong'));
-		} else if (ifSlashOrText === 'slash') {
-			query = args[1].getString('cancion', true) as string
-			console.log('slash')
-			await ctx.reply(i18next.t('pingCommand.pong') + query);
+		if (type === 'text') {
+			await ctx.reply(`${i18next.t('pingCommand.pong')} and args are: ${args}`);
+		} else {
+			const query = args.getString('cancion', true)
+			await ctx.reply(i18next.t('pingCommand.pong') + + query);
 		}
 	},
 });
