@@ -4,5 +4,5 @@ const schema = new mongoose.Schema({
     userid: {type: String, required: true},
     language: {type: String, required: true}
 });
-const db = new mongoose.Model(schema)
-export default db
+const db = new mongoose.model('language' , schema)
+export {db};

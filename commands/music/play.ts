@@ -2,6 +2,8 @@ import { Args, commandModule, CommandType, Context, SernOptionsData } from '@ser
 import { ApplicationCommandOptionType } from 'discord.js';
 import { publish } from '../../src/plugins/publish';
 import i18next from "i18next"
+import { db } from '../../schema/lang'
+const { getLang } = require('../../util/getLang')
 
 export default commandModule({
 	type: CommandType.Both,
@@ -17,6 +19,7 @@ export default commandModule({
 	],
 	//alias : [],
 	execute: async (ctx: Context, [type, args]) => {
+		getLang(ctx.user.id, ctx.guild.id, i18next)
 		if (type === 'text') {
 			await ctx.reply(`${i18next.t('pingCommand.pong')} and args are: ${args}`);
 		} else {
