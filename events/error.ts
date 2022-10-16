@@ -6,4 +6,4 @@ export default eventModule({
     execute(err) {
       console.log(err);
     }
-  })
+})
