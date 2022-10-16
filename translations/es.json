@@ -1,6 +1,1 @@
-{
-    "play": {
-        "NotInVC": "You aren't in a VC. Please, join one!",
-        "NotSameVC": "You aren't in the same VC as the bot. Please, join this one: {{voicechannelid}}"
-    }
-}
+{}
