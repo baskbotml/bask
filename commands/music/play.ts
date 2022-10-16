@@ -1,9 +1,8 @@
 import { Args, commandModule, CommandType, Context, SernOptionsData } from '@sern/handler';
-import { ApplicationCommandOptionType } from 'discord.js';
+import { ApplicationCommandOptionType, GuildMember, GuildMemberManager } from 'discord.js';
 import { publish } from '../../src/plugins/publish';
 import i18next from "i18next"
-import { db } from '../../schema/lang'
-const { getLang } = require('../../util/getLang')
+const { getLang } = require('../../util/getLangUser')
 
 export default commandModule({
 	type: CommandType.Both,
@@ -20,11 +19,16 @@ export default commandModule({
 	//alias : [],
 	execute: async (ctx: Context, [type, args]) => {
 		getLang(ctx.user.id, ctx.guild.id, i18next)
-		if (type === 'text') {
-			await ctx.reply(`${i18next.t('pingCommand.pong')} and args are: ${args}`);
+		const guildmembercheck = ctx.client.guilds.cache.get(ctx.guild.id)?.members.cache.get(ctx.user.id)
+		const guildmemberVC_id = (ctx.member! as GuildMember).voice.channelId
+		if (guildmembercheck?.voice.channel) {
+			if (guildmemberVC_id === ctx.guild.members.me!.voice.channelId) {
+				
+			} else {
+				ctx.reply({content: `${i18next.t('play.NotSameVC', { voicechannelid: `${ctx.guild.members.me!.voice.channel}` })}`, ephemeral: true})
+			}
 		} else {
-			const query = args.getString('cancion', true)
-			await ctx.reply(i18next.t('pingCommand.pong') + + query);
+			ctx.reply({content: `${i18next.t('play.NotInVC')}`, ephemeral: true})
 		}
 	},
 });
