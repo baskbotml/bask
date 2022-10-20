@@ -7,9 +7,9 @@ const client = new Client({
 
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 
-rest.put(Routes.applicationCommands('918823941273968640'), { body: [] })
-.then(() => console.log('Successfully deleted all application commands.'))
-.catch(console.error);
+rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: [] })
+    .then(() => console.log('Successfully deleted all application commands.'))
+    .catch(console.error);
 
 client.on('ready', () => {console.log("ready");})
 
