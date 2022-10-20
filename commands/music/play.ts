@@ -1,34 +1,25 @@
-import { Args, commandModule, CommandType, Context, SernOptionsData } from '@sern/handler';
-import { ApplicationCommandOptionType, GuildMember, GuildMemberManager } from 'discord.js';
-import { publish } from '../../src/plugins/publish';
-import i18next from "i18next"
-const { getLang } = require('../../util/getLangUser')
+import { commandModule, CommandType, Context, SlashOptions } from '@sern/handler';
+import { ApplicationCommandOptionType, GuildMember, GuildTextBasedChannel, VoiceBasedChannel } from 'discord.js'
+import { distube } from '../..';
 
 export default commandModule({
-	type: CommandType.Both,
-	plugins: [publish()],
-	description: 'play music',
-	options: [
-		{
-			name: 'cancion',
-			description: 'nombre de la cancion o url',
-			type: ApplicationCommandOptionType.String,
-			required: true
-		}
-	],
+	type: CommandType.Slash,
+	plugins: [],
+	description: 'Play some music',
+    options: [
+            {
+                name: 'name',
+                description: 'The name of the song or URL',
+                type: ApplicationCommandOptionType.String
+            }
+        ],
 	//alias : [],
-	execute: async (ctx: Context, [type, args]) => {
-		getLang(ctx.user.id, ctx.guild.id, i18next)
-		const guildmembercheck = ctx.client.guilds.cache.get(ctx.guild.id)?.members.cache.get(ctx.user.id)
-		const guildmemberVC_id = (ctx.member! as GuildMember).voice.channelId
-		if (guildmembercheck?.voice.channel) {
-			if (guildmemberVC_id === ctx.guild.members.me!.voice.channelId) {
-				
-			} else {
-				ctx.reply({content: `${i18next.t('play.NotSameVC', { voicechannelid: `${ctx.guild.members.me!.voice.channel}` })}`, ephemeral: true})
-			}
-		} else {
-			ctx.reply({content: `${i18next.t('play.NotInVC')}`, ephemeral: true})
-		}
+    execute: async (ctx, args) => {
+        if (!ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.user.id)?.voice.channel) return await ctx.reply({content: "You are not in a voice channel!", ephemeral: true})
+        distube.play(ctx.message.member?.voice.channel as VoiceBasedChannel, (args[1] as SlashOptions).getString('name') as string, {
+            member: ctx.message.member as GuildMember,
+            textChannel: ctx.message.channel as GuildTextBasedChannel,
+        })
+        await ctx.reply({content: "should be playing"})
 	},
 });

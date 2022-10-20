@@ -1,9 +1,8 @@
-const { EventType, eventModule } = require('@sern/handler');          
+import { eventModule, EventType } from "@sern/handler";
 
 export default eventModule({
     type: EventType.Sern,
-    name : 'error',
-    execute(err) {
-      console.log(err);
+    execute (err) {
+        console.log(err)
     }
 })

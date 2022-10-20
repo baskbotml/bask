@@ -1,62 +1,43 @@
-const { Client, GatewayIntentBits } = require("discord.js");
-require("dotenv").config();
-const { Sern } = require("@sern/handler");
-const prefix = process.env.PREFIX;
-import SoundCloudPlugin from "@distube/soundcloud";
+import { Client, GatewayIntentBits } from 'discord.js';
+import { Sern, SernEmitter } from '@sern/handler';
+import "dotenv/config"
+import DisTube from "distube";
 import SpotifyPlugin from "@distube/spotify";
 import { YtDlpPlugin } from "@distube/yt-dlp";
-import { SernEmitter } from "@sern/handler";
-import DisTube from "distube";
-import i18next from "i18next";
-const mongoose = require("mongoose");
+import SoundCloudPlugin from "@distube/soundcloud";
+
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMembers,
 		GatewayIntentBits.GuildMessages,
-		GatewayIntentBits.MessageContent,
-		GatewayIntentBits.GuildVoiceStates,
+		GatewayIntentBits.MessageContent, //Make sure this is enabled for text commands!
 	],
 });
+
+export const distube = new DisTube(client, {
+    plugins: [
+        new SpotifyPlugin({
+            api: {
+                clientId: process.env.SPOTIFY_CLIENT as string,
+                clientSecret: process.env.SPOTIFY_SECRET as string
+            }
+        }),
+        new SoundCloudPlugin(),
+        new YtDlpPlugin()
+    ],
+    leaveOnEmpty: true,
+    emptyCooldown: 60
+})
+
+Sern.addExternal(distube)
 
 Sern.init({
 	client,
-	defaultPrefix: `${prefix}`,
-	commands: "./commands",
-	events: "./events",
-	sernEmitter: new SernEmitter(),
+	defaultPrefix: process.env.PREFIX,
+	commands: './commands',
+	events: './events',
+    sernEmitter: new SernEmitter()
 });
 
-mongoose.connect(process.env.MONGODB);
-
-i18next.init({
-	resources: {
-		en: { translation: require("./translations/en.json") },
-		es: { translation: require("./translations/es.json") },
-		fr: { translation: require("./translations/fr.json") },
-		de: { translation: require("./translations/de.json") },
-	},
-	lng: "en",
-	fallbackLng: "en",
-});
-
-client.distube = new DisTube(client, {
-	leaveOnStop: false,
-	emitNewSongOnly: true,
-	plugins: [
-		new SpotifyPlugin({
-			emitEventsAfterFetching: true,
-			api: {
-				clientId: `${process.env.SPOTIFY_CLIENT}`,
-				clientSecret: `${process.env.SPOTIFY_SECRET}`,
-			},
-		}),
-		new SoundCloudPlugin(),
-		new YtDlpPlugin(),
-	],
-});
-
-client.on("ready", () => {
-	console.log("Ready!");
-});
-
-client.login(process.env.TOKEN);
+client.login();
