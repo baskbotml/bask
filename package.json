@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc --watch"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/baskbotml/bask.git"
@@ -23,11 +24,12 @@
     "@distube/spotify": "^1.4.2",
     "@distube/yt-dlp": "^1.1.3",
     "@sern/handler": "^1.0.0",
+    "axios": "^1.1.3",
     "discord.js": "^14.2.0",
     "distube": "^4.0.4",
     "dotenv": "^16.0.3",
     "libsodium-wrappers": "^0.7.10",
-    "mongoose": "^6.6.5"
+    "mongoose": "^6.6.7"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",

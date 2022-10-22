@@ -1,24 +1,28 @@
 import { commandModule, CommandType, Context, SlashOptions } from '@sern/handler';
-import { ApplicationCommandOptionType, GuildMember, GuildTextBasedChannel, VoiceBasedChannel } from 'discord.js'
-import { distube } from '../..';
+import { ApplicationCommandOptionType, Guild, GuildMember, GuildTextBasedChannel, messageLink, VoiceBasedChannel, VoiceChannel, VoiceState } from 'discord.js'
+import { distube } from '../../index.js';
+import { publish } from '../../src/plugins/publish.js';
 
 export default commandModule({
 	type: CommandType.Slash,
-	plugins: [],
+	plugins: [publish()],
 	description: 'Play some music',
     options: [
             {
                 name: 'name',
                 description: 'The name of the song or URL',
-                type: ApplicationCommandOptionType.String
+                type: ApplicationCommandOptionType.String,
+                required: true
             }
         ],
 	//alias : [],
     execute: async (ctx, args) => {
         if (!ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.user.id)?.voice.channel) return await ctx.reply({content: "You are not in a voice channel!", ephemeral: true})
-        distube.play(ctx.message.member?.voice.channel as VoiceBasedChannel, args[1].getString('name') as string, {
-            member: ctx.message.member as GuildMember,
-            textChannel: ctx.message.channel as GuildTextBasedChannel,
+        // if (ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.user.id)?.voice.channelId !== ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.client.user?.id as string)?.voice.channel) return await ctx.reply({content: `You need to stay in the same VC as me!`, ephemeral: true})
+        if (ctx.guild.members.me?.voice.channelId) {if (ctx.guild.voiceStates.cache.get(ctx.client.user!.id)?.channelId !== ctx.guild.voiceStates.cache.get(ctx.user.id)?.channelId) return await ctx.reply({content: `You need to stay in the same VC as me!`, ephemeral: true})}
+        distube.play((ctx.interaction.member as GuildMember)?.voice.channel as VoiceBasedChannel, args[1].getString('name') as string, {
+            member: ctx.interaction.member as GuildMember,
+            textChannel: ctx.interaction.channel as GuildTextBasedChannel,
         })
         await ctx.reply({content: "Should be added to the queue if a message is sent now!", ephemeral: true})
 	},
