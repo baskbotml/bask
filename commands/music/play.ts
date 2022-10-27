@@ -1,5 +1,5 @@
-import { commandModule, CommandType, Context, SlashOptions } from '@sern/handler';
-import { ApplicationCommandOptionType, Guild, GuildMember, GuildTextBasedChannel, messageLink, VoiceBasedChannel, VoiceChannel, VoiceState } from 'discord.js'
+import { commandModule, CommandType } from '@sern/handler';
+import { ApplicationCommandOptionType, GuildMember, GuildTextBasedChannel, VoiceBasedChannel } from 'discord.js'
 import { distube } from '../../index.js';
 import { publish } from '../../src/plugins/publish.js';
 

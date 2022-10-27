@@ -7,6 +7,9 @@ import { YtDlpPlugin } from "@distube/yt-dlp";
 import { SoundCloudPlugin } from "@distube/soundcloud";
 import mongoose from 'mongoose';
 import { db as distubeerror } from './schemas/distubeError.js';
+import { db as songsplayed } from './schemas/songsPlayed.js';
+import express from 'express'
+const app = express();
 
 const client = new Client({
 	intents: [
@@ -18,11 +21,28 @@ const client = new Client({
 	],
 });
 
+app.use(express.static("public"))
+
+app.get("/", function (req, res) {
+    res.send("<p>bask is up</p>")
+})
+
+app.get("/songsplayed", async function (req, res) {
+    songsplayed.countDocuments({}, function (err: Error, count: Number) {
+		if (err) throw err
+		res.status(200).send(count.toString())
+	})
+})
+
+app.listen(process.env.PORT || 4020,
+    () => console.log("The webserver is listening"));
+
 mongoose.connect(process.env.MONGODB as string).then(() => console.log('Connected to MongoDB'))
 
 export const distube = new DisTube(client, {
     plugins: [
         new SpotifyPlugin({
+            emitEventsAfterFetching: false,
             api: {
                 clientId: process.env.SPOTIFY_CLIENT as string,
                 clientSecret: process.env.SPOTIFY_SECRET as string
