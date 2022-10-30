@@ -12,4 +12,6 @@ COPY . .
 
 RUN tsc --build
 
+COPY ./.env ./dist/.env
+
 CMD cd dist;node index.js
