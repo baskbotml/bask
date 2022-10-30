@@ -2,9 +2,11 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package.json ./
+RUN apk add --no-cache ffmpeg
 
 RUN npm install -g typescript
+
+COPY package.json ./
 
 RUN npm install
 
