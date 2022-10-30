@@ -17,9 +17,8 @@ export default commandModule({
         ],
 	//alias : [],
     execute: async (ctx, args) => {
-        const vcConnectionCheck = ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.client.user!.id)?.permissionsIn((ctx.interaction.member as GuildMember).voice.channelId as string)
+        const vcConnectionCheck = ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.user.id)?.permissionsIn((ctx.interaction.member as GuildMember).voice.channelId as string)
         if (!ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.user.id)?.voice.channel) return await ctx.reply({content: "You are not in a voice channel!", ephemeral: true})
-        // if (ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.user.id)?.voice.channelId !== ctx.client.guilds.cache.get(ctx.guildId)?.members.cache.get(ctx.client.user?.id as string)?.voice.channel) return await ctx.reply({content: `You need to stay in the same VC as me!`, ephemeral: true})
         if (ctx.guild.members.me?.voice.channelId) {if (ctx.guild.voiceStates.cache.get(ctx.client.user!.id)?.channelId !== ctx.guild.voiceStates.cache.get(ctx.user.id)?.channelId) return await ctx.reply({content: `You need to stay in the same VC as me!`, ephemeral: true})}
         if (!vcConnectionCheck!.has(PermissionFlagsBits.Connect) && vcConnectionCheck!.has(PermissionFlagsBits.Speak)) return await ctx.reply({content: `I can't join or speak on that VC!`, ephemeral: true})
         distube.play((ctx.interaction.member as GuildMember)?.voice.channel as VoiceBasedChannel, args[1].getString('name') as string, {
