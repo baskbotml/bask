@@ -14,8 +14,8 @@ export default eventModule({
 	type: EventType.External,
 	emitter: 'DisTube',
 	execute: async (queue: Queue, song: Song) => {
-		const dbthing = new db({ songid: song.id })
-		await dbthing.save()
+		const dbthing = new db({ songid: song.id });
+		await dbthing.save();
 		const buttonrow1 = new ActionRowBuilder<ButtonBuilder>().setComponents(
 			new ButtonBuilder()
 				.setCustomId('events-distube-playSong-pauseplay')
@@ -120,6 +120,7 @@ export default eventModule({
 					embeds: [embed.setDescription(`Skipped by ${i.user}`)],
 					components: [buttonrow1disabled, buttonrow2disabled],
 				});
+				collector.stop();
 			} else if (i.customId === 'events-distube-playSong-stop') {
 				await queue.stop();
 				await i.editReply({ content: 'The queue was stopped correctly' });
@@ -127,22 +128,33 @@ export default eventModule({
 					embeds: [embed.setDescription(`Queue stopped by ${i.user}`)],
 					components: [buttonrow1disabled, buttonrow2disabled],
 				});
+				collector.stop();
 			} else if (i.customId === 'events-distube-playSong-pauseplay') {
 				if (queue.paused) {
 					queue.resume();
 					await i.editReply({ content: 'The song was resumed correctly' });
+					await message.edit({
+						embeds: [embed.setDescription(`Song resumed by ${i.user}`)],
+					});
 				} else {
 					queue.pause();
 					await i.editReply({ content: 'The song was paused correctly' });
+					await message.edit({
+						embeds: [embed.setDescription(`Song paused by ${i.user}`)],
+					});
 				}
 			} else if (i.customId === 'events-distube-playSong-mute') {
 				queue.setVolume(0);
 				await i.editReply({ content: 'The queue has been muted correctly.' });
+				await message.edit({
+					embeds: [embed.setDescription(`Song muted by ${i.user}`)],
+				});
 			} else if (i.customId === 'events-distube-playSong-lowervolume') {
 				let volume = queue.volume;
 				volume = volume - 10;
 				if (volume <= 0) {
-					queue.setVolume(0);
+					volume = 0;
+					queue.setVolume(volume);
 					await i.editReply({
 						content: `The queue's volume has been lowered correctly to ${volume}%`,
 					});
@@ -156,7 +168,8 @@ export default eventModule({
 				let volume = queue.volume;
 				volume = queue.volume + 10;
 				if (volume >= 100) {
-					queue.setVolume(100);
+					volume = 100;
+					queue.setVolume(volume);
 					await i.editReply({
 						content: `The queue's volume has been increased correctly to ${volume}%`,
 					});

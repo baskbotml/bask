@@ -6,7 +6,7 @@ import { publish } from '../../src/plugins/publish.js';
 
 export default commandModule({
     type: CommandType.Slash,
-    plugins: [publish()],
+    plugins: [],
     description: 'See the current queue',
     options: [],
     execute: async (ctx, options) => {

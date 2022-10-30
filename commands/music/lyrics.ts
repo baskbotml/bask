@@ -8,7 +8,7 @@ const genius = new Genius.Client()
 export default commandModule({
 	type: CommandType.Slash,
 	plugins: [publish()],
-	description: 'Loop the song or queue',
+	description: 'See the lyrics',
     options: [],
 	//alias : [],
     execute: async (ctx) => {
