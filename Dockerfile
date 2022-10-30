@@ -12,4 +12,4 @@ COPY . .
 
 RUN tsc --build
 
-RUN node dist/index.js
+CMD node dist/index.js
