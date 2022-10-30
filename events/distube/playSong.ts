@@ -52,13 +52,13 @@ export default eventModule({
 					.setStyle(ButtonStyle.Secondary)
 					.setDisabled(true),
 				new ButtonBuilder()
-					.setCustomId('events-distube-playSong-pauseplay')
-					.setEmoji('⏯')
+					.setCustomId('events-distube-playSong-stop')
+					.setEmoji('⏹️')
 					.setStyle(ButtonStyle.Secondary)
 					.setDisabled(true),
 				new ButtonBuilder()
-					.setCustomId('events-distube-playSong-stop')
-					.setEmoji('⏹️')
+					.setCustomId('events-distube-playSong-pauseplay')
+					.setEmoji('⏯')
 					.setStyle(ButtonStyle.Secondary)
 					.setDisabled(true)
 			);
