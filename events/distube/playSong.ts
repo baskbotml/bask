@@ -105,16 +105,11 @@ export default eventModule({
 			componentType: ComponentType.Button,
 		});
 		collector.on('collect', async (i) => {
-			await i.deferReply({ ephemeral: true });
 			if (i.customId === 'events-distube-playSong-skip') {
 				if (queue.songs.length > 1) {
 					await queue.skip();
-					await i.editReply('Song was skipped correctly');
 				} else {
 					await queue.stop();
-					await i.editReply(
-						`Couldn't skip the song because there wasn't another song after that one.\nStopping queue...`
-					);
 				}
 				await message.edit({
 					embeds: [embed.setDescription(`Skipped by ${i.user}`)],
@@ -123,7 +118,6 @@ export default eventModule({
 				collector.stop();
 			} else if (i.customId === 'events-distube-playSong-stop') {
 				await queue.stop();
-				await i.editReply({ content: 'The queue was stopped correctly' });
 				await message.edit({
 					embeds: [embed.setDescription(`Queue stopped by ${i.user}`)],
 					components: [buttonrow1disabled, buttonrow2disabled],
@@ -132,20 +126,17 @@ export default eventModule({
 			} else if (i.customId === 'events-distube-playSong-pauseplay') {
 				if (queue.paused) {
 					queue.resume();
-					await i.editReply({ content: 'The song was resumed correctly' });
 					await message.edit({
 						embeds: [embed.setDescription(`Song resumed by ${i.user}`)],
 					});
 				} else {
 					queue.pause();
-					await i.editReply({ content: 'The song was paused correctly' });
 					await message.edit({
 						embeds: [embed.setDescription(`Song paused by ${i.user}`)],
 					});
 				}
 			} else if (i.customId === 'events-distube-playSong-mute') {
 				queue.setVolume(0);
-				await i.editReply({ content: 'The queue has been muted correctly.' });
 				await message.edit({
 					embeds: [embed.setDescription(`Song muted by ${i.user}`)],
 				});
@@ -155,13 +146,13 @@ export default eventModule({
 				if (volume <= 0) {
 					volume = 0;
 					queue.setVolume(volume);
-					await i.editReply({
-						content: `The queue's volume has been lowered correctly to ${volume}%`,
+					await message.edit({
+						embeds: [embed.setDescription(`Volume lowered by ${i.user} to ${volume}%`)],
 					});
 				} else {
 					queue.setVolume(volume);
-					await i.editReply({
-						content: `The queue's volume has been lowered correctly to ${volume}%`,
+					await message.edit({
+						embeds: [embed.setDescription(`Volume lowered by ${i.user} to ${volume}%`)],
 					});
 				}
 			} else if (i.customId === 'events-distube-playSong-highvolume') {
@@ -170,14 +161,10 @@ export default eventModule({
 				if (volume >= 100) {
 					volume = 100;
 					queue.setVolume(volume);
-					await i.editReply({
-						content: `The queue's volume has been increased correctly to ${volume}%`,
-					});
+					await message.edit({embeds: [embed.setDescription(`Volume increased by ${i.user} to ${volume}%`)]})
 				} else {
 					queue.setVolume(volume);
-					await i.editReply({
-						content: `The queue's volume has been increased correctly to ${volume}%`,
-					});
+					await message.edit({embeds: [embed.setDescription(`Volume increased by ${i.user} to ${volume}%`)]})
 				}
 			}
 		});

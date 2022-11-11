@@ -23,7 +23,7 @@ export default commandModule({
             if (ctx.guild.members.me?.voice.channelId) {if (ctx.guild.voiceStates.cache.get(ctx.client.user!.id)?.channelId !== ctx.guild.voiceStates.cache.get(ctx.user.id)?.channelId) return await ctx.reply({content: `You need to stay in the same VC as me!`, ephemeral: true})}
             if (!vcConnectionCheck!.has(PermissionFlagsBits.Connect)) return await ctx.reply({content: `I can't join on that VC!`, ephemeral: true})
             if (!vcConnectionCheck!.has(PermissionFlagsBits.Speak)) return await ctx.reply({content: `I can't speak on that VC!`, ephemeral: true})
-            distube.play((ctx.interaction.member as GuildMember)?.voice.channel as VoiceBasedChannel, args[1].getString('name') as string, {
+            distube.play((ctx.interaction.member as GuildMember).voice.channel!, args[1].getString('name')!, {
                 member: ctx.interaction.member as GuildMember,
                 textChannel: ctx.interaction.channel as GuildTextBasedChannel,
             })
