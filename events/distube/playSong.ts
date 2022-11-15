@@ -115,6 +115,7 @@ export default eventModule({
 					embeds: [embed.setDescription(`Skipped by ${i.user}`)],
 					components: [buttonrow1disabled, buttonrow2disabled],
 				});
+				await i.deferUpdate()
 				collector.stop();
 			} else if (i.customId === 'events-distube-playSong-stop') {
 				await queue.stop();
@@ -122,6 +123,7 @@ export default eventModule({
 					embeds: [embed.setDescription(`Queue stopped by ${i.user}`)],
 					components: [buttonrow1disabled, buttonrow2disabled],
 				});
+				await i.deferUpdate()
 				collector.stop();
 			} else if (i.customId === 'events-distube-playSong-pauseplay') {
 				if (queue.paused) {
@@ -134,12 +136,14 @@ export default eventModule({
 					await message.edit({
 						embeds: [embed.setDescription(`Song paused by ${i.user}`)],
 					});
+					await i.deferUpdate()
 				}
 			} else if (i.customId === 'events-distube-playSong-mute') {
 				queue.setVolume(0);
 				await message.edit({
 					embeds: [embed.setDescription(`Song muted by ${i.user}`)],
 				});
+				await i.deferUpdate()
 			} else if (i.customId === 'events-distube-playSong-lowervolume') {
 				let volume = queue.volume;
 				volume = volume - 10;
@@ -149,11 +153,13 @@ export default eventModule({
 					await message.edit({
 						embeds: [embed.setDescription(`Volume lowered by ${i.user} to ${volume}%`)],
 					});
+					await i.deferUpdate()
 				} else {
 					queue.setVolume(volume);
 					await message.edit({
 						embeds: [embed.setDescription(`Volume lowered by ${i.user} to ${volume}%`)],
 					});
+					await i.deferUpdate()
 				}
 			} else if (i.customId === 'events-distube-playSong-highvolume') {
 				let volume = queue.volume;
@@ -162,9 +168,11 @@ export default eventModule({
 					volume = 100;
 					queue.setVolume(volume);
 					await message.edit({embeds: [embed.setDescription(`Volume increased by ${i.user} to ${volume}%`)]})
+					await i.deferUpdate()
 				} else {
 					queue.setVolume(volume);
 					await message.edit({embeds: [embed.setDescription(`Volume increased by ${i.user} to ${volume}%`)]})
+					await i.deferUpdate()
 				}
 			}
 		});
