@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler';
 import { ApplicationCommandOptionType } from 'discord.js';
 import { distube } from '../../index.js';
-import { publish } from '../../src/plugins/publish.js';
+import { publish } from '../../plugins/publish.js';
 
 export default commandModule({
     type: CommandType.Slash,
@@ -19,7 +19,7 @@ export default commandModule({
     ],
     execute: async (ctx, options) => {
         const option = ctx.interaction.options.getNumber('volume') as number
-        const queue = distube.getQueue(ctx.guild.id)
+        const queue = distube.getQueue(ctx.guild!.id)
         queue?.setVolume(option)
         await ctx.reply({content: `The volume was set to ${option}%`, ephemeral: true})
     },

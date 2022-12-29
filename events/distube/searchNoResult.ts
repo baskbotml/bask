@@ -4,7 +4,7 @@ import { Queue, Song } from "distube";
 
 export default eventModule({
 	type: EventType.External,
-	emitter: 'DisTube',
+	emitter: 'distube',
 	execute: async (channel: GuildTextBasedChannel, error: Error) => {
 		await channel.send({content: 'The search query could not be found'})
 	}

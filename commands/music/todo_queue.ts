@@ -2,7 +2,7 @@ import { commandModule, CommandType } from '@sern/handler';
 import { EmbedBuilder } from 'discord.js';
 import { Song } from 'distube';
 import { distube } from '../../index.js';
-import { publish } from '../../src/plugins/publish.js';
+import { publish } from '../../plugins/publish.js';
 
 export default commandModule({
     type: CommandType.Slash,
@@ -10,7 +10,7 @@ export default commandModule({
     description: 'See the current queue',
     options: [],
     execute: async (ctx, options) => {
-        const queue = distube.getQueue(ctx.guild.id)
+        const queue = distube.getQueue(ctx.guild!.id)
         const embed = new EmbedBuilder()
             .setAuthor({name: ctx.user.username, iconURL: ctx.user.displayAvatarURL()})
             .setColor('Random')

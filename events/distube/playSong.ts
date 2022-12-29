@@ -12,7 +12,7 @@ import { db } from '../../schemas/songsPlayed.js';
 
 export default eventModule({
 	type: EventType.External,
-	emitter: 'DisTube',
+	emitter: 'distube',
 	execute: async (queue: Queue, song: Song) => {
 		const dbthing = new db({ songid: song.id });
 		await dbthing.save();

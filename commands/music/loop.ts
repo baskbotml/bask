@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler';
 import { ApplicationCommandOptionType } from 'discord.js';
 import { distube } from '../../index.js';
-import { publish } from '../../src/plugins/publish.js';
+import { publish } from '../../plugins/publish.js';
 
 export default commandModule({
 	type: CommandType.Slash,
@@ -19,8 +19,8 @@ export default commandModule({
 	],
 	//alias : [],
 	execute: async (ctx) => {
-		if (ctx.guild.members.me?.voice.channelId) {
-			const queue = distube.getQueue(ctx.guild);
+		if (ctx.guild!.members.me?.voice.channelId) {
+			const queue = distube.getQueue(ctx.guild!);
 			queue?.setRepeatMode(ctx.interaction.options.getNumber('type') as number);
 			switch (ctx.interaction.options.getNumber('type') as number) {
 				case 0:

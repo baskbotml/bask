@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits } from 'discord.js';
-import { Sern, SernEmitter } from '@sern/handler';
+import { DefaultLogging, Dependencies, Sern, SernEmitter, single, Singleton } from '@sern/handler';
 import "dotenv/config"
 import { DisTube } from "distube";
 import { SpotifyPlugin } from "@distube/spotify";
@@ -57,14 +57,23 @@ export const distube = new DisTube(client, {
     joinNewVoiceChannel: false
 })
 
-Sern.addExternal(distube)
-
+interface MyDependencies extends Dependencies {
+    '@sern/client': Singleton<Client>;
+    '@sern/logger': Singleton<DefaultLogging>;
+}
+export const useContainer = Sern.makeDependencies<MyDependencies>({
+    build: root => root
+        .add({ '@sern/client': single(client)  }) 
+        .add({ '@sern/logger': single(new DefaultLogging()) })
+        .add({ 'distube': single(distube) })
+});
 Sern.init({
-	client,
 	defaultPrefix: process.env.PREFIX,
-	commands: './commands',
-	events: './events',
-    sernEmitter: new SernEmitter()
+	commands: 'dist/commands',
+	events: 'dist/events',
+    containerConfig: {
+        get: useContainer
+    }
 });
 
 distube.on('error', async (channel, error) => {

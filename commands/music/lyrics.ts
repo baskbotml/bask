@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler';
 import { EmbedBuilder } from 'discord.js'
 import { distube } from '../../index.js';
-import { publish } from '../../src/plugins/publish.js';
+import { publish } from '../../plugins/publish.js';
 import Genius from "genius-lyrics";
 const genius = new Genius.Client()
 
@@ -13,8 +13,8 @@ export default commandModule({
 	//alias : [],
     execute: async (ctx) => {
         await ctx.interaction.deferReply({ephemeral: true})
-        if (ctx.guild.members.me?.voice.channelId) {
-            const queue = distube.getQueue(ctx.guild)
+        if (ctx.guild!.members.me?.voice.channelId) {
+            const queue = distube.getQueue(ctx.guild!)
             const search = await genius.songs.search(queue!.songs[0].name as string)
             const song = search[0]
             let lyrics
