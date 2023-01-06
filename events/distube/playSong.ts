@@ -14,8 +14,8 @@ export default eventModule({
 	type: EventType.External,
 	emitter: 'distube',
 	execute: async (queue: Queue, song: Song) => {
-		const dbthing = new db({ songid: song.id });
-		await dbthing.save();
+		// const dbthing = new db({ songid: song.id });
+		// await dbthing.save();
 		const buttonrow1 = new ActionRowBuilder<ButtonBuilder>().setComponents(
 			new ButtonBuilder()
 				.setCustomId('events-distube-playSong-pauseplay')
