@@ -64,7 +64,7 @@ interface MyDependencies extends Dependencies {
 export const useContainer = Sern.makeDependencies<MyDependencies>({
     build: root => root
         .add({ '@sern/client': single(client)  }) 
-        .add({ '@sern/logger': single(new DefaultLogging()) })
+        .upsert({ '@sern/logger': single(new DefaultLogging()) })
         .add({ 'distube': single(distube) })
 });
 Sern.init({
