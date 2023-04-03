@@ -1,0 +1,7 @@
+{
+    "play": {
+        "error": {
+            "noQuery": "You didn't provide a query!\nCommand syntax: `b!p(lay) eric cartman poker face`"
+        }
+    }
+}
