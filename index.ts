@@ -68,7 +68,7 @@ export const useContainer = Sern.makeDependencies<MyDependencies>({
         .add({ 'distube': single(distube) })
 });
 Sern.init({
-	defaultPrefix: process.env.PREFIX,
+	defaultPrefix: 'b!',
 	commands: 'dist/commands',
 	events: 'dist/events',
     containerConfig: {
