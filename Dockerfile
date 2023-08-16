@@ -4,18 +4,19 @@ WORKDIR /app
 
 RUN apk add --no-cache ffmpeg
 
-RUN apk add --no-cache --virtual .gyp python make g++ \
-    && apk del .gyp
-
-RUN npm install -g typescript
+RUN apk add --no-cache --virtual .gyp python make g++
 
 COPY package.json ./
 COPY yarn.lock ./
 
 RUN yarn
 
+RUN apk del .gyp
+
 COPY . .
 
-RUN tsc --build
+RUN yarn build
+
+RUN yarn prune --production
 
 CMD node dist/index.js
