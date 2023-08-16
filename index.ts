@@ -8,8 +8,6 @@ import { SoundCloudPlugin } from "@distube/soundcloud";
 import mongoose from 'mongoose';
 import { db as distubeerror } from './schemas/distubeError.js';
 import { db as songsplayed } from './schemas/songsPlayed.js';
-import express from 'express'
-const app = express();
 
 const client = new Client({
 	intents: [
@@ -17,25 +15,9 @@ const client = new Client({
 		GatewayIntentBits.GuildMembers,
 		GatewayIntentBits.GuildMessages,
 		GatewayIntentBits.MessageContent, //Make sure this is enabled for text commands!
-        GatewayIntentBits.GuildVoiceStates
+      GatewayIntentBits.GuildVoiceStates
 	],
 });
-
-app.use(express.static("public"))
-
-app.get("/", function (req, res) {
-    res.send("<p>bask is up</p>")
-})
-
-app.get("/songsplayed", async function (req, res) {
-    songsplayed.countDocuments({}, function (err: Error, count: Number) {
-		if (err) throw err
-		res.status(200).send(count.toString())
-	})
-})
-
-app.listen(process.env.PORT || 4020,
-    () => console.log("The webserver is listening"));
 
 mongoose.connect(process.env.MONGODB as string).then(() => console.log('Connected to MongoDB'))
 
@@ -54,7 +36,7 @@ export const distube = new DisTube(client, {
     leaveOnEmpty: true,
     emptyCooldown: 60,
     emitAddSongWhenCreatingQueue: false,
-    joinNewVoiceChannel: false
+    joinNewVoiceChannel: false,
 })
 
 interface MyDependencies extends Dependencies {
@@ -91,7 +73,8 @@ distube.on('error', async (channel, error) => {
         return db.save()
     }
     const id = makeid(20)
-    if (channel) await channel.send('An error ocurred.\nNotified correctly! ID:' + '`' + id + '`') && await writetoDB({error: String(error), id: id})
+    console.log(`Error with ID ${id}\n${error}`)
+    if (channel) await channel.send('An error ocurred.\nNotified correctly! ID: ' + '`' + id + '`') && await writetoDB({error: String(error), id: id})
     else await writetoDB({error: String(error), id: id})
 })
 
