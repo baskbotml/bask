@@ -2,13 +2,14 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-RUN apk add --no-cache ffmpeg python3 make alpine-sdk
+RUN apk add --no-cache ffmpeg python3 make g++
 
-RUN npm install -g typescript
+RUN npm install -g typescript yarn
 
 COPY package.json ./
+COPY yarn.lock ./
 
-RUN npm install
+RUN yarn
 
 COPY . .
 
