@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apk add --no-cache ffmpeg
 
-RUN apk add --no-cache --virtual .gyp python make g++
+RUN apk add --no-cache --virtual .gyp python3 make g++
 
 COPY package.json ./
 COPY yarn.lock ./
