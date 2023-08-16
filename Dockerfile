@@ -2,7 +2,7 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-RUN apk add --no-cache ffmpeg python3
+RUN apk add --no-cache ffmpeg python3 make
 
 RUN npm install -g typescript
 
