@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apk add --no-cache ffmpeg python3 make g++
 
-RUN npm install -g typescript yarn
+RUN npm install -g typescript
 
 COPY package.json ./
 COPY yarn.lock ./
