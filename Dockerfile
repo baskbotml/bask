@@ -14,6 +14,10 @@ COPY . .
 
 RUN yarn tsc
 
+RUN yarn cache clean
+
+RUN yarn prune --production
+
 RUN apk del .gyp
 
 CMD node dist/index.js
