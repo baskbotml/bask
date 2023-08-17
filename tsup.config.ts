@@ -8,4 +8,5 @@ export default defineConfig({
 	outDir: './dist',
 	format: ['esm'],
 	target: 'esnext',
+	minify: true
 })
