@@ -1,4 +1,5 @@
-FROM node:lts-alpine
+# Build stage
+FROM node:lts-alpine AS build
 
 WORKDIR /app
 
@@ -6,16 +7,19 @@ RUN apk add --no-cache ffmpeg
 
 RUN apk add --no-cache --virtual .gyp python3 make g++
 
-COPY package.json ./
-
+COPY package.json yarn.lock ./
 RUN yarn
 
 COPY . .
-
 RUN yarn tsup
-
 RUN yarn cache clean
 
-RUN apk del .gyp
+# Final stage
+FROM node:lts-alpine AS final
 
-CMD node dist/index.js
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package.json ./package.json
+
+CMD ["node", "dist/index.js"]
