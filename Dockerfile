@@ -12,7 +12,7 @@ RUN yarn
 
 COPY . .
 
-RUN yarn tsc
+RUN yarn tsc --project "/app/tsconfig.json"
 
 RUN yarn cache clean
 
