@@ -16,8 +16,6 @@ RUN yarn tsup
 
 RUN yarn cache clean
 
-RUN yarn prune --production
-
 RUN apk del .gyp
 
 CMD node dist/index.js
