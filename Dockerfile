@@ -10,12 +10,10 @@ COPY package.json ./
 
 RUN yarn
 
-RUN apk del .gyp
-
 COPY . .
 
-RUN yarn build
+RUN yarn tsc
 
-RUN yarn prune --production
+RUN apk del .gyp
 
 CMD node dist/index.js
