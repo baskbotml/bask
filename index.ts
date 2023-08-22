@@ -78,4 +78,6 @@ distube.on('error', async (channel, error) => {
     else await writetoDB({error: String(error), id: id})
 })
 
+distube.on("searchNoResult", (message, query) => message.channel.send(`No result found for ${query}!`));
+
 client.login(process.env.TOKEN);

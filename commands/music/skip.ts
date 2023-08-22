@@ -8,8 +8,12 @@ export default commandModule({
     description: 'Skip the song',
     options: [],
     execute: async (ctx, options) => {
-        const queue = distube.getQueue(ctx.guild!.id)
-        await queue?.skip()
+        const queue = distube.getQueue(ctx.guild!.id)!
+        if (queue.songs.length > 1) {
+            await queue.skip();
+        } else {
+            await queue.stop();
+        }
         await ctx.reply({content: `The queue was skipped correctly!`, ephemeral: true})
     },
 });
