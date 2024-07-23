@@ -538,32 +538,30 @@
     tslib "^2.6.1"
     ws "^8.13.0"
 
-"@distube/soundcloud@^1.2.2":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@distube/soundcloud/-/soundcloud-1.3.3.tgz#73ae80f2235530ac20604b620513377a4005ad90"
-  integrity sha512-nrO0LEQMPfokUk+rogJX15KUy4ckAce13UPLzzpckKbfTDn7eh3wUVd/bCn7jhqIPS3NO5qlVN0d0Qq6UqPDZg==
+"@distube/soundcloud@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@distube/soundcloud/-/soundcloud-2.0.3.tgz#16516a2541e0faef08d72f3c7c1f606e3a8fe599"
+  integrity sha512-Hm0xtSVJge67W1QdXcOBjJmVaQWR45S1BrPP8oXie4dgYPPasNksXAqEAo8KwsqFNCVwHkCQcgQlTcgU7LzYBg==
   dependencies:
-    soundcloud.ts "^0.5.2"
+    soundcloud.ts "^0.5.3"
 
-"@distube/spotify@^1.4.2":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@distube/spotify/-/spotify-1.5.1.tgz#fdc05d426c8aa004e63e2666084379bb707645a5"
-  integrity sha512-89S2LaTefn88BoOs4Cy6mRC7mIgGjzc0d9/GKbyyDnWG7APSjC7JevJAC+R207btIl/+o/JozGeroIllJx1s3g==
+"@distube/spotify@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@distube/spotify/-/spotify-2.0.2.tgz#0ea4e986341851e3d788625fbbe24daba2b58ea2"
+  integrity sha512-rIncX05PhedMZuZyhgz7dt9y/nxir9KPmxUo6sBxfITQcztkXlG3r0EhKivp9+BRCQlEBO/GitRTHVwhRKtmLg==
   dependencies:
-    spotify-uri "^3.0.3"
-    spotify-url-info "^3.1.10"
+    spotify-uri "^4.1.0"
+    spotify-url-info "^3.2.15"
     spotify-web-api-node "^5.0.2"
-    undici "^5.14.0"
+    undici "^6.18.2"
 
-"@distube/yt-dlp@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@distube/yt-dlp/-/yt-dlp-1.1.3.tgz#ee9c28695f5427910619a6039ad63f1be23b78b4"
-  integrity sha512-kInFaIgNK7bhUJwY5o/ejBpwHdtLEH9l/GPBl9G7ddMKFYx7/MA5vKZ2F3oZQVMq9pzphPMRpSGi4UBT9L6O2g==
+"@distube/yt-dlp@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@distube/yt-dlp/-/yt-dlp-2.0.1.tgz#b0c38261e9736432d03c939b1a18d3b2d90129cd"
+  integrity sha512-9c16lRU6jbyal38UUr5E36+2lp36s0DaJySOtFjuAPgaJkp2xvKvyd+s4rFZSqVQGJO5GOhBiH+HD115SKfKAw==
   dependencies:
     dargs "^7.0.0"
-    execa "^5.1.1"
-    mkdirp "^1.0.4"
-    undici "^5.7.0"
+    undici "^6.18.2"
 
 "@distube/ytdl-core@^4.11.17":
   version "4.11.17"
@@ -574,20 +572,6 @@
     miniget "^4.2.3"
     sax "^1.2.4"
     undici "^5.22.1"
-
-"@distube/ytpl@^1.1.1":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@distube/ytpl/-/ytpl-1.1.2.tgz#3df331cd5ad05248f89f0cbd339370bf57b4103c"
-  integrity sha512-fN4+w94x9Jdr/mFat7F2y94hepnZGdZsBDrP28SR/EE+uc9mw9N7CcAzqhITuPBZNELpcz1NvH2vLWpIIgGA+g==
-  dependencies:
-    miniget "^4.2.1"
-
-"@distube/ytsr@^1.1.9":
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/@distube/ytsr/-/ytsr-1.1.9.tgz#963ed3deaed4394e1e7190acdbe5382931ec1a21"
-  integrity sha512-rFSQo9wQ51mfJcazik5xzQcQpnUEZhaDA9W/5F/4s6I+1FNEjLEwkS5fFhf5qgg2G69EYy0kzcnivKiPwRF+4A==
-  dependencies:
-    miniget "^4.2.2"
 
 "@esbuild/android-arm64@0.18.20":
   version "0.18.20"
@@ -1548,18 +1532,13 @@ discord.js@^14.8.0:
     undici "^5.22.1"
     ws "^8.13.0"
 
-distube@^4.0.4:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/distube/-/distube-4.0.6.tgz#9df6bb0902fe8f709613c867ebb025ba970ab272"
-  integrity sha512-FVnooKpiTkbd8rFXH5rdGABnZCuLDbOsXkj6UCvyateG5gNAI7xGmmcugV+3kC21rmQlgD8jOLMv+uugESgGKA==
+distube@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/distube/-/distube-5.0.2.tgz#3b2f0115bd65f29d57de051aaace6f9d90972e9b"
+  integrity sha512-VR+js/RS+sbxQIGaewh1jZtQDeSE1x05V6CFDb7/KATXSln+nUemIh/RTqKPuPeFJhcPcYGdZWPvEliDU/RS/g==
   dependencies:
-    "@distube/ytdl-core" "^4.11.17"
-    "@distube/ytpl" "^1.1.1"
-    "@distube/ytsr" "^1.1.9"
-    prism-media "npm:@distube/prism-media@latest"
     tiny-typed-emitter "^2.1.0"
-    tslib "^2.6.1"
-    undici "^5.22.1"
+    undici "^6.18.2"
 
 dom-serializer@^2.0.0:
   version "2.0.0"
@@ -1634,7 +1613,7 @@ esbuild@^0.18.2:
     "@esbuild/win32-ia32" "0.18.20"
     "@esbuild/win32-x64" "0.18.20"
 
-execa@^5.0.0, execa@^5.1.1:
+execa@^5.0.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/execa/-/execa-5.1.1.tgz#f80ad9cbf4298f7bd1d4c9555c21e93741c411dd"
   integrity sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==
@@ -2085,7 +2064,7 @@ mimic-fn@^2.1.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
 
-miniget@^4.2.1, miniget@^4.2.2, miniget@^4.2.3:
+miniget@^4.2.2, miniget@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/miniget/-/miniget-4.2.3.tgz#3707a24c7c11c25d359473291638ab28aab349bd"
   integrity sha512-SjbDPDICJ1zT+ZvQwK0hUcRY4wxlhhNpHL9nJOB2MEAXRGagTljsO8MEDzQMTFf0Q8g4QNi8P9lEm/g7e+qgzA==
@@ -2117,7 +2096,7 @@ minizlib@^2.1.1:
     minipass "^3.0.0"
     yallist "^4.0.0"
 
-mkdirp@^1.0.3, mkdirp@^1.0.4:
+mkdirp@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
@@ -2334,11 +2313,6 @@ prism-media@^1.3.5:
   resolved "https://registry.yarnpkg.com/prism-media/-/prism-media-1.3.5.tgz#ea1533229f304a1b774b158de40e98c765db0aa6"
   integrity sha512-IQdl0Q01m4LrkN1EGIE9lphov5Hy7WWlH6ulf5QdGePLlPas9p2mhgddTEHrlaXYjjFToM1/rWuwF37VF4taaA==
 
-"prism-media@npm:@distube/prism-media@latest":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@distube/prism-media/-/prism-media-1.0.0.tgz#96fefb15c9e748bbed4371aefd07e2252b40e39d"
-  integrity sha512-UII2uqFH95uMPg4Z9yOJU3KJpb5vnrELBFXQYFhlBlk3GZ5wwDtt9fmR35PcqbqtnYGdtmUCCMucaSUeVlWrmw==
-
 proxy-from-env@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
@@ -2520,12 +2494,12 @@ socks@^2.7.1:
     ip "^2.0.0"
     smart-buffer "^4.2.0"
 
-soundcloud.ts@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/soundcloud.ts/-/soundcloud.ts-0.5.2.tgz#60660b889afb31c0e504f089002228fbf576b298"
-  integrity sha512-/pc72HWYJpSpup+mJBE9pT31JsrMcxJGBlip3Vem+0Fsscg98xh1/7I2nCpAKuMAeV6MVyrisI8TfjO6T7qKJg==
+soundcloud.ts@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/soundcloud.ts/-/soundcloud.ts-0.5.3.tgz#598daf40e1c2654408a7072fdea8f7f77778ba74"
+  integrity sha512-ZMH6gG5e7WqJrIYXTv14MNArPhx3WzfrL1Ij/2qBDW8mVbNJc8lxOQOc4kLvrfvDl5TkCdZa7zXOiwD6ESXq+g==
   dependencies:
-    undici "^5.22.1"
+    undici "^6.17.0"
 
 source-map@0.8.0-beta.0:
   version "0.8.0-beta.0"
@@ -2541,23 +2515,18 @@ sparse-bitfield@^3.0.3:
   dependencies:
     memory-pager "^1.0.2"
 
-spotify-uri@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/spotify-uri/-/spotify-uri-3.0.4.tgz#3925951f03043bbb344219b471e37bc911ae726d"
-  integrity sha512-wtofZNzMjPXR1KD2/gw8F/7ng1QwxpfFbrVgcRaAh0oSJ6ZGC5ln+IBptIRuti1dYGOxJqEIvDc88ctLvTSWiQ==
+spotify-uri@^4.1.0, spotify-uri@~4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/spotify-uri/-/spotify-uri-4.1.0.tgz#d1286b1922055e2b0e37b773ef2bff2c40e71010"
+  integrity sha512-SFpBt8pQqO7DOFBsdUjv3GxGZAKYP7UqcTflfE7h3YL1lynl/6Motq7NERoJJR8eF9kXQRSpcdMmV5ou84rbng==
 
-spotify-uri@~4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/spotify-uri/-/spotify-uri-4.0.0.tgz#a56d034146726d4f43630151a497efbf4c4230db"
-  integrity sha512-ZAJKcnfx73glWG+3SCDRvW4nkVMzA2hqZwJtSDZ/o87EoGawh/CZ8YkqZIoVcLkg94suicEa/ZOiBFSz1MJ6Pg==
-
-spotify-url-info@^3.1.10:
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/spotify-url-info/-/spotify-url-info-3.2.6.tgz#e7838372368488897ade3d4e2f4cab6ead0971b8"
-  integrity sha512-AOGU4uyT0FqyEXbyvZc+ZShnTGBY1eMd50BBZBPfiXPT4ihuzmxAmkWj9VzHT9NIjX7MtVDrszATllR8+WeFkw==
+spotify-url-info@^3.2.15:
+  version "3.2.16"
+  resolved "https://registry.yarnpkg.com/spotify-url-info/-/spotify-url-info-3.2.16.tgz#7c14f6a03aff83407607d4d62a2771d14cce0431"
+  integrity sha512-szXt1PLt8lqhaXsTNYH7zPd+EBj6Ha0xtqitqicCijGX6x/jYvn6wgGaK2F1OQfJzx8lxDNfZbtarn4DxzaZ2Q==
   dependencies:
     himalaya "~1.1.0"
-    spotify-uri "~4.0.0"
+    spotify-uri "~4.1.0"
 
 spotify-web-api-node@^5.0.2:
   version "5.0.2"
@@ -2765,12 +2734,17 @@ undefsafe@^2.0.5:
   resolved "https://registry.yarnpkg.com/undefsafe/-/undefsafe-2.0.5.tgz#38733b9327bdcd226db889fb723a6efd162e6e2c"
   integrity sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==
 
-undici@^5.14.0, undici@^5.22.1, undici@^5.7.0, undici@^5.8.2:
+undici@^5.22.1, undici@^5.8.2:
   version "5.23.0"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.23.0.tgz#e7bdb0ed42cebe7b7aca87ced53e6eaafb8f8ca0"
   integrity sha512-1D7w+fvRsqlQ9GscLBwcAJinqcZGHUKjbOmXdlE/v8BvEGXjeWAax+341q44EuTcHXXnfyKNbKRq4Lg7OzhMmg==
   dependencies:
     busboy "^1.6.0"
+
+undici@^6.17.0, undici@^6.18.2:
+  version "6.19.4"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-6.19.4.tgz#5ec3b191699a1678ee0aa9ed14e443a682d0f7a8"
+  integrity sha512-i3uaEUwNdkRq2qtTRRJb13moW5HWqviu7Vl7oYRYz++uPtGHJj+x7TGjcEuwS5Mt2P4nA0U9dhIX3DdB6JGY0g==
 
 util-deprecate@^1.0.1:
   version "1.0.2"
