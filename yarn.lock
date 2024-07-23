@@ -538,12 +538,12 @@
     tslib "^2.6.1"
     ws "^8.13.0"
 
-"@distube/soundcloud@^1.2.2":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@distube/soundcloud/-/soundcloud-1.3.3.tgz#73ae80f2235530ac20604b620513377a4005ad90"
-  integrity sha512-nrO0LEQMPfokUk+rogJX15KUy4ckAce13UPLzzpckKbfTDn7eh3wUVd/bCn7jhqIPS3NO5qlVN0d0Qq6UqPDZg==
+"@distube/soundcloud@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@distube/soundcloud/-/soundcloud-1.3.5.tgz#a9ac21f682afabe3a7c495f9f20fc25d92c90ee9"
+  integrity sha512-d/Va+DrBCpwFB7aAEwofAbQ8OWmJViHJtl/OsIfHsNBhh/A5Agp1I0P2Go8dJTQtOhNhKUxgR7Pa1jOxP7m9Xw==
   dependencies:
-    soundcloud.ts "^0.5.2"
+    soundcloud.ts "^0.5.3"
 
 "@distube/spotify@^1.4.2":
   version "1.5.1"
@@ -770,14 +770,22 @@
   resolved "https://registry.yarnpkg.com/@sapphire/snowflake/-/snowflake-3.5.1.tgz#254521c188b49e8b2d4cc048b475fb2b38737fec"
   integrity sha512-BxcYGzgEsdlG0dKAyOm0ehLGm2CafIrfQTZGWgkfKYbj+pNNsorZ7EotuZukc2MT70E0UbppVbtpBrqpzVzjNA==
 
-"@sern/handler@^2.6.1":
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/@sern/handler/-/handler-2.6.3.tgz#e1970739a6b12b0be4c4a689b3d99570cf141e57"
-  integrity sha512-qGLX9tCiZQWsd14zhJ5Gqc81RG3VFddBGhrDcXl9AodNt7Q+HQdNvIiagaH72BTS9L8L+64JlLOoq9S5jwgREA==
+"@sern/handler@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@sern/handler/-/handler-4.0.1.tgz#1a457b38b4f84a3b37ecf8b0704dd1355bb09e50"
+  integrity sha512-4XO+Do8sXBHe02bJ8hRN7sZI/WaUU+GTCOf9R5kLNhh/YdoRievo6Fd6piJMCYXBoJxri64efafUQ1wVOxNh2g==
   dependencies:
-    iti "^0.6.0"
+    "@sern/ioc" "^1.1.0"
+    callsites "^3.1.0"
+    cron "^3.1.7"
+    deepmerge "^4.3.1"
     rxjs "^7.8.0"
-    ts-results-es "^3.6.0"
+    ts-results-es "^4.1.0"
+
+"@sern/ioc@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sern/ioc/-/ioc-1.1.0.tgz#7a2a25d10c140e971a94086e12d3fd117a2942b6"
+  integrity sha512-ZjsVY7FKXdZJAxFVFdFuXyb/s2/KB6CtqwxvGoFHEyVt2m1Qq7gnRRaxlrGIX6M5v/WXHst2tQvxLKtj4kbMgg==
 
 "@smithy/abort-controller@^2.0.4":
   version "2.0.4"
@@ -1159,6 +1167,11 @@
   resolved "https://registry.yarnpkg.com/@types/http-errors/-/http-errors-2.0.1.tgz#20172f9578b225f6c7da63446f56d4ce108d5a65"
   integrity sha512-/K3ds8TRAfBvi5vfjuz8y6+GiAYBZ0x4tXv1Av6CWBWn0IlADc+ZX9pMq7oU0fNQPnBwIZl3rmeLp6SBApbxSQ==
 
+"@types/luxon@~3.4.0":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-3.4.2.tgz#e4fc7214a420173cea47739c33cdf10874694db7"
+  integrity sha512-TifLZlFudklWlMBfhubvgqTXRzLDI5pCbGa4P8a3wPyUQSW+1xQ5eDsreP9DWHX3tjq1ke96uYG/nwundroWcA==
+
 "@types/mime@*":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-3.0.1.tgz#5f8f2bca0a5863cb69bc0b0acd88c96cb1d4ae10"
@@ -1375,6 +1388,11 @@ call-bind@^1.0.0:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.2"
 
+callsites@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
+  integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
+
 cheerio-select@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cheerio-select/-/cheerio-select-2.1.0.tgz#4d8673286b8126ca2a8e42740d5e3c4884ae21b4"
@@ -1457,6 +1475,14 @@ cookiejar@^2.1.2:
   resolved "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.1.4.tgz#ee669c1fea2cf42dc31585469d193fef0d65771b"
   integrity sha512-LDx6oHrK+PhzLKJU9j5S7/Y3jM/mUHvD/DeI1WQmJn652iPC5Y4TBzC9l+5OMOXlyTTA+SmVUPm0HQUwpD5Jqw==
 
+cron@^3.1.7:
+  version "3.1.7"
+  resolved "https://registry.yarnpkg.com/cron/-/cron-3.1.7.tgz#3423d618ba625e78458fff8cb67001672d49ba0d"
+  integrity sha512-tlBg7ARsAMQLzgwqVxy8AZl/qlTc5nibqYwtNGoCrd+cV+ugI+tvZC1oT/8dFH8W455YrywGykx/KMmAqOr7Jw==
+  dependencies:
+    "@types/luxon" "~3.4.0"
+    luxon "~3.4.0"
+
 cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -1500,6 +1526,11 @@ debug@^3.2.7:
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
+
+deepmerge@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
+  integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -1949,13 +1980,6 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-iti@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/iti/-/iti-0.6.0.tgz#e763b4089fd8e5cbd1eb753a9d93e80ad11f3d9b"
-  integrity sha512-JqujcnAIF3pmzitjbT3acc0LkordU6oHBDvWeT6a25wvEVBddFX3DFx/p6YBwGX1TTFsyLgVZtwhGOknthC96A==
-  dependencies:
-    utility-types "^3.10.0"
-
 joycon@^3.0.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/joycon/-/joycon-3.1.1.tgz#bce8596d6ae808f8b68168f5fc69280996894f03"
@@ -2014,6 +2038,11 @@ lru-cache@^6.0.0:
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
+
+luxon@~3.4.0:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.4.4.tgz#cf20dc27dc532ba41a169c43fdcc0063601577af"
+  integrity sha512-zobTr7akeGHnv7eBOXcRgMeCP6+uyYsczwmeRCauvpvaAltgNyTbLH/+VaEAPUeWBT+1GuNmz4wC/6jtQzbbVA==
 
 m3u8stream@^0.8.6:
   version "0.8.6"
@@ -2520,12 +2549,12 @@ socks@^2.7.1:
     ip "^2.0.0"
     smart-buffer "^4.2.0"
 
-soundcloud.ts@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/soundcloud.ts/-/soundcloud.ts-0.5.2.tgz#60660b889afb31c0e504f089002228fbf576b298"
-  integrity sha512-/pc72HWYJpSpup+mJBE9pT31JsrMcxJGBlip3Vem+0Fsscg98xh1/7I2nCpAKuMAeV6MVyrisI8TfjO6T7qKJg==
+soundcloud.ts@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/soundcloud.ts/-/soundcloud.ts-0.5.3.tgz#598daf40e1c2654408a7072fdea8f7f77778ba74"
+  integrity sha512-ZMH6gG5e7WqJrIYXTv14MNArPhx3WzfrL1Ij/2qBDW8mVbNJc8lxOQOc4kLvrfvDl5TkCdZa7zXOiwD6ESXq+g==
   dependencies:
-    undici "^5.22.1"
+    undici "^6.17.0"
 
 source-map@0.8.0-beta.0:
   version "0.8.0-beta.0"
@@ -2720,10 +2749,10 @@ ts-mixer@^6.0.3:
   resolved "https://registry.yarnpkg.com/ts-mixer/-/ts-mixer-6.0.3.tgz#69bd50f406ff39daa369885b16c77a6194c7cae6"
   integrity sha512-k43M7uCG1AkTyxgnmI5MPwKoUvS/bRvLvUb7+Pgpdlmok8AoqmUaZxUUw8zKM5B1lqZrt41GjYgnvAi0fppqgQ==
 
-ts-results-es@^3.6.0:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/ts-results-es/-/ts-results-es-3.6.1.tgz#2249aca8690b3b68445873c2a3da9517db98a16b"
-  integrity sha512-J1i9VBJd6PV+W9ZYJLNGiwzEW34f+dbrB8GzL5VEUdDEWQqU89DtSx4oeX01h5e+GP1xI4e7CRn7fbYeNKdZOg==
+ts-results-es@^4.1.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/ts-results-es/-/ts-results-es-4.2.0.tgz#5cdb5746f50577465421278407d776c66a18cfd2"
+  integrity sha512-GfpRk+qvHxa/6gADH8WMN/jXvs5oHYbKtMQc6X9L3VhToy5Lri3iQowyYSytaRcvPDiTT2z3vurzQZXFQFXKRA==
 
 tslib@^1.11.1:
   version "1.14.1"
@@ -2772,15 +2801,15 @@ undici@^5.14.0, undici@^5.22.1, undici@^5.7.0, undici@^5.8.2:
   dependencies:
     busboy "^1.6.0"
 
+undici@^6.17.0:
+  version "6.19.4"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-6.19.4.tgz#5ec3b191699a1678ee0aa9ed14e443a682d0f7a8"
+  integrity sha512-i3uaEUwNdkRq2qtTRRJb13moW5HWqviu7Vl7oYRYz++uPtGHJj+x7TGjcEuwS5Mt2P4nA0U9dhIX3DdB6JGY0g==
+
 util-deprecate@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
-
-utility-types@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.10.0.tgz#ea4148f9a741015f05ed74fd615e1d20e6bed82b"
-  integrity sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==
 
 uuid@^8.3.2:
   version "8.3.2"
