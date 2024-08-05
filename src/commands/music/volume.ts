@@ -1,11 +1,9 @@
 import { commandModule, CommandType } from '@sern/handler';
 import { ApplicationCommandOptionType } from 'discord.js';
-import { distube } from '../../index.js';
-import { publish } from '../../plugins/publish.js';
 
 export default commandModule({
     type: CommandType.Slash,
-    plugins: [publish()],
+    plugins: [],
     description: 'Set the volume of the queue',
     options: [
         {
@@ -17,9 +15,9 @@ export default commandModule({
             required: true
         }
     ],
-    execute: async (ctx, options) => {
+    execute: async (ctx, args) => {
         const option = ctx.interaction.options.getNumber('volume') as number
-        const queue = distube.getQueue(ctx.guild!.id)
+        const queue = args.deps.distube.getQueue(ctx.guild!.id)
         queue?.setVolume(option)
         await ctx.reply({content: `The volume was set to ${option}%`, ephemeral: true})
     },

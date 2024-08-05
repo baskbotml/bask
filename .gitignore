@@ -2,3 +2,4 @@
 .env
 /dist
 lavalink/
+.sern/ambient.d.ts

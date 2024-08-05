@@ -1,11 +1,9 @@
 import { commandModule, CommandType } from '@sern/handler';
-import { ApplicationCommandOptionType, GuildMember, GuildTextBasedChannel, PermissionFlagsBits, VoiceBasedChannel } from 'discord.js'
-import { distube } from '../../index.js';
-import { publish } from '../../plugins/publish.js';
+import { ApplicationCommandOptionType, GuildMember, GuildTextBasedChannel, PermissionFlagsBits } from 'discord.js'
 
 export default commandModule({
 	type: CommandType.Slash,
-	plugins: [publish()],
+	plugins: [],
 	description: 'Play some music',
     options: [
             {
@@ -23,7 +21,7 @@ export default commandModule({
             if (ctx.guild!.members.me?.voice.channelId) {if (ctx.guild!.voiceStates.cache.get(ctx.client.user!.id)?.channelId !== ctx.guild!.voiceStates.cache.get(ctx.user.id)?.channelId) return await ctx.reply({content: `You need to stay in the same VC as me!`, ephemeral: true})}
             if (!vcConnectionCheck!.has(PermissionFlagsBits.Connect)) return await ctx.reply({content: `I can't join on that VC!`, ephemeral: true})
             if (!vcConnectionCheck!.has(PermissionFlagsBits.Speak)) return await ctx.reply({content: `I can't speak on that VC!`, ephemeral: true})
-            distube.play((ctx.interaction.member as GuildMember).voice.channel!, args[1].getString('name')!, {
+            args.deps.distube.play((ctx.interaction.member as GuildMember).voice.channel!, ctx.options.getString('name', true), {
                 member: ctx.interaction.member as GuildMember,
                 textChannel: ctx.interaction.channel as GuildTextBasedChannel,
             })

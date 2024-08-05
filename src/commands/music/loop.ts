@@ -1,11 +1,9 @@
 import { commandModule, CommandType } from '@sern/handler';
 import { ApplicationCommandOptionType } from 'discord.js';
-import { distube } from '../../index.js';
-import { publish } from '../../plugins/publish.js';
 
 export default commandModule({
 	type: CommandType.Slash,
-	plugins: [publish()],
+	plugins: [],
 	description: 'Loop the song or queue',
 	options: [
 		{
@@ -18,11 +16,12 @@ export default commandModule({
 		},
 	],
 	//alias : [],
-	execute: async (ctx) => {
+	execute: async (ctx, args) => {
 		if (ctx.guild!.members.me?.voice.channelId) {
-			const queue = distube.getQueue(ctx.guild!);
-			queue?.setRepeatMode(ctx.interaction.options.getNumber('type') as number);
-			switch (ctx.interaction.options.getNumber('type') as number) {
+			const queue = args.deps.distube.getQueue(ctx.guild!);
+			const type = ctx.options.getNumber('type', true)
+			queue?.setRepeatMode(type);
+			switch (type) {
 				case 0:
 					await ctx.reply({
 						content: 'Looping has been disabled.',

@@ -80,9 +80,11 @@ export default eventModule({
 					.setStyle(ButtonStyle.Secondary)
 					.setDisabled(true)
 			);
-		const likeanddislike = await axios
-			.get(`https://returnyoutubedislikeapi.com/votes?videoId=${song.id}`)
-			.then((res) => res.data);
+		if (song.source === 'youtube') {
+			const likeanddislike = await fetch(`https://returnyoutubedislikeapi.com/votes?videoId=${song.id}`).then(res => res.json())
+			song.likes = likeanddislike.likes as number;
+			song.dislikes = likeanddislike.dislikes as number;
+		}
 		const embed = new EmbedBuilder()
 			.setColor('Random')
 			.setAuthor({
@@ -90,11 +92,11 @@ export default eventModule({
 				iconURL: song.member?.user.displayAvatarURL(),
 			})
 			.setTitle(song.name as string)
-			.setURL(song.url)
+			.setURL(song.url!)
 			.setImage(song.thumbnail as string)
 			.setFooter({
 				iconURL: 'https://cdn.discordapp.com/emojis/990951871797678110.gif',
-				text: `Views: ${song.views} • Likes: ${likeanddislike.likes} • Dislikes: ${likeanddislike.dislikes}`,
+				text: `Views: ${song.views?.toLocaleString()} • Likes: ${song.likes?.toLocaleString()}${song.dislikes ? ` • Dislikes: ${song.dislikes.toLocaleString()}` : ''}`,
 			});
 		const message = await queue.textChannel!.send({
 			embeds: [embed],

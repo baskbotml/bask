@@ -1,14 +1,12 @@
 import { commandModule, CommandType } from '@sern/handler';
-import { distube } from '../../index.js';
-import { publish } from '../../plugins/publish.js';
 
 export default commandModule({
     type: CommandType.Slash,
-    plugins: [publish()],
+    plugins: [],
     description: 'Skip the song',
     options: [],
-    execute: async (ctx, options) => {
-        const queue = distube.getQueue(ctx.guild!.id)!
+    execute: async (ctx, args) => {
+        const queue = args.deps.distube.getQueue(ctx.guild!.id)!
         if (queue.songs.length > 1) {
             await queue.skip();
         } else {

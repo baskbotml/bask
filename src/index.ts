@@ -1,13 +1,14 @@
 import { Client, GatewayIntentBits } from 'discord.js';
-import { DefaultLogging, Dependencies, Sern, SernEmitter, single, Singleton } from '@sern/handler';
+import { makeDependencies, Sern } from '@sern/handler';
 import "dotenv/config"
-import { DisTube } from "distube";
+import { DisTube, Events } from "distube";
 import { SpotifyPlugin } from "@distube/spotify";
 import { YtDlpPlugin } from "@distube/yt-dlp";
 import { SoundCloudPlugin } from "@distube/soundcloud";
 import mongoose from 'mongoose';
 import { db as distubeerror } from './schemas/distubeError.js';
-import { db as songsplayed } from './schemas/songsPlayed.js';
+import { Publisher } from '@sern/publisher';
+import { YouTubePlugin } from '@distube/youtube';
 
 const client = new Client({
 	intents: [
@@ -23,42 +24,36 @@ mongoose.connect(process.env.MONGODB as string).then(() => console.log('Connecte
 
 export const distube = new DisTube(client, {
     plugins: [
+        new YouTubePlugin(),
+        new SoundCloudPlugin(),
         new SpotifyPlugin({
-            emitEventsAfterFetching: false,
             api: {
                 clientId: process.env.SPOTIFY_CLIENT as string,
                 clientSecret: process.env.SPOTIFY_SECRET as string
-            }
+            },
         }),
-        new SoundCloudPlugin(),
-        new YtDlpPlugin()
     ],
-    leaveOnEmpty: true,
-    emptyCooldown: 60,
     emitAddSongWhenCreatingQueue: false,
     joinNewVoiceChannel: false,
 })
 
-interface MyDependencies extends Dependencies {
-    '@sern/client': Singleton<Client>;
-    '@sern/logger': Singleton<DefaultLogging>;
-}
-export const useContainer = Sern.makeDependencies<MyDependencies>({
-    build: root => root
-        .add({ '@sern/client': single(client)  }) 
-        .upsert({ '@sern/logger': single(new DefaultLogging()) })
-        .add({ 'distube': single(distube) })
+await makeDependencies(({ add }) => {
+    add('@sern/client', client);
+    add('@sern/publisher', deps => new Publisher(deps['@sern/modules'],
+        deps['@sern/emitter'],
+        deps['@sern/logger']!));
+    add('distube', distube);
 });
 Sern.init({
 	defaultPrefix: 'b!',
 	commands: 'dist/commands',
-	events: 'dist/events',
-    containerConfig: {
-        get: useContainer
-    }
+	events: 'dist/events'
 });
 
-distube.on('error', async (channel, error) => {
+distube.on(Events.ERROR, async (error, queue) => {
+    if (error.name === 'CANNOT_RESOVE_SONG')
+        return queue.textChannel!.send(`Cannot find the track!`)
+
     function makeid(length: number) {
         var result           = '';
         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -74,10 +69,10 @@ distube.on('error', async (channel, error) => {
     }
     const id = makeid(20)
     console.log(`Error with ID ${id}\n${error}`)
-    if (channel) await channel.send('An error ocurred.\nNotified correctly! ID: ' + '`' + id + '`') && await writetoDB({error: String(error), id: id})
-    else await writetoDB({error: String(error), id: id})
+    if (queue.textChannel) await queue.textChannel.send('An error ocurred.\nNotified correctly! ID: ' + '`' + id + '`') && await writetoDB({error: String(error), id: id})
+    await writetoDB({error: String(error), id: id})
 })
 
-distube.on("searchNoResult", (message, query) => message.channel.send(`No result found for ${query}!`));
+// distube.on(Events ., (queue, ) => queue.textChannel!.send(`No result found for ${query}!`));
 
-client.login(process.env.TOKEN);
+client.login();

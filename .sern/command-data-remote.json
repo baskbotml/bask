@@ -1,0 +1,208 @@
+{
+    "global": [
+        {
+            "id": "1270071328065454223",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549591",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "volume",
+            "name_localizations": null,
+            "description": "Set the volume of the queue",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "options": [
+                {
+                    "type": 10,
+                    "name": "volume",
+                    "name_localizations": null,
+                    "description": "Set the volume",
+                    "description_localizations": null,
+                    "required": true,
+                    "min_value": 0,
+                    "max_value": 100
+                }
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071614733549590",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549592",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "todo_queue",
+            "name_localizations": null,
+            "description": "See the current queue",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328065454224",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549593",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "stop",
+            "name_localizations": null,
+            "description": "Stop the song",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328065454225",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549594",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "skip",
+            "name_localizations": null,
+            "description": "Skip the song",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328577425438",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549595",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "shuffle",
+            "name_localizations": null,
+            "description": "Shuffle the queue",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328577425439",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549596",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "resume",
+            "name_localizations": null,
+            "description": "Resume the song",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328577425440",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549597",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "play",
+            "name_localizations": null,
+            "description": "Play some music",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "options": [
+                {
+                    "type": 3,
+                    "name": "name",
+                    "name_localizations": null,
+                    "description": "The name of the song or URL",
+                    "description_localizations": null,
+                    "required": true
+                }
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328577425441",
+            "application_id": "842030808114266193",
+            "version": "1270071614733549598",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "pause",
+            "name_localizations": null,
+            "description": "Pause the song",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328577425442",
+            "application_id": "842030808114266193",
+            "version": "1270071615073419358",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "lyrics",
+            "name_localizations": null,
+            "description": "See the lyrics",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1270071328577425443",
+            "application_id": "842030808114266193",
+            "version": "1270071615073419359",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "loop",
+            "name_localizations": null,
+            "description": "Loop the song or queue",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "options": [
+                {
+                    "type": 10,
+                    "name": "type",
+                    "name_localizations": null,
+                    "description": "0 for disable, 1 for song, 2 for queue",
+                    "description_localizations": null,
+                    "required": true,
+                    "min_value": 0,
+                    "max_value": 2
+                }
+            ],
+            "nsfw": false
+        }
+    ]
+}

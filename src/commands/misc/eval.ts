@@ -8,7 +8,7 @@ export default commandModule({
 	execute: async (ctx, args) => {
 		if (ctx.user.id !== '703974042700611634') return
 
-		let code: string[] | string = args[1];
+		let code: string[] | string = ctx.options;
 		code = code.join(" ") as string;
 		if (code.includes("await")) {
 			const ar = code.split(";");
