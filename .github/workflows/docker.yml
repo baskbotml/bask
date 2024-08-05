@@ -25,7 +25,6 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
-          registry: containers.srizan.dev
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -33,7 +32,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: containers.srizan.dev/bask
+          images: srizan10/bask
           tags: latest
 
       - name: Build and push Docker image
@@ -50,5 +49,5 @@ jobs:
           AUTH_HEADER: ${{ secrets.WHSERVER_TOKEN }}
         run: |
           curl -X POST \
-            -H "Authorization: Bearer $AUTH_HEADER" \
+            -H "Authorization: $AUTH_HEADER" \
             https://webhooks.srizan.dev/hooks/bask
