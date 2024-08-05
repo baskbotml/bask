@@ -20,7 +20,7 @@
     "url": "https://github.com/baskbotml/bask/issues"
   },
   "dependencies": {
-    "@discordjs/voice": "^0.15.0",
+    "@discordjs/voice": "^0.17.0",
     "@distube/soundcloud": "^2.0.3",
     "@distube/spotify": "^2.0.2",
     "@distube/youtube": "^1.0.4",
