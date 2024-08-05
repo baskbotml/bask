@@ -1,0 +1,16 @@
+services:
+  lavalink:
+    # pin the image version to Lavalink v4
+    image: ghcr.io/lavalink-devs/lavalink:4
+    container_name: lavalink
+    environment:
+      # set Java options here
+      - _JAVA_OPTIONS=-Xmx2G
+    volumes:
+      # mount application.yml from the same directory or use environment variables
+      - ./lavalink/application.yml:/opt/Lavalink/application.yml
+      # persist plugins between restarts, make sure to set the correct permissions (user: 322, group: 322)
+      - ./lavalink/plugins:/opt/Lavalink/plugins/
+    ports:
+      # you only need this if you want to make your lavalink accessible from outside of containers
+      - "2333:2333"

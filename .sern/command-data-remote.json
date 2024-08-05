@@ -1,0 +1,106 @@
+{
+    "global": [
+        {
+            "id": "1266045635564535818",
+            "application_id": "842030808114266193",
+            "version": "1266045635564535819",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "skip",
+            "name_localizations": null,
+            "description": "Skip the current track",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1266042932419493950",
+            "application_id": "842030808114266193",
+            "version": "1266044540330971318",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "play",
+            "name_localizations": null,
+            "description": "Play music",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "options": [
+                {
+                    "type": 3,
+                    "name": "query",
+                    "name_localizations": null,
+                    "description": "The query to search for",
+                    "description_localizations": null,
+                    "required": true
+                },
+                {
+                    "type": 3,
+                    "name": "source",
+                    "name_localizations": null,
+                    "description": "The source of the query",
+                    "description_localizations": null,
+                    "choices": [
+                        {
+                            "name": "Youtube",
+                            "name_localizations": null,
+                            "value": "ytsearch:"
+                        },
+                        {
+                            "name": "Youtube Music",
+                            "name_localizations": null,
+                            "value": "ytmsearch:"
+                        },
+                        {
+                            "name": "Soundcloud",
+                            "name_localizations": null,
+                            "value": "scsearch:"
+                        }
+                    ]
+                }
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1265625991175344290",
+            "application_id": "842030808114266193",
+            "version": "1265625991175344291",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "ping",
+            "name_localizations": null,
+            "description": "A ping command",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        },
+        {
+            "id": "1265771919882584177",
+            "application_id": "842030808114266193",
+            "version": "1265771919882584178",
+            "default_member_permissions": null,
+            "type": 1,
+            "name": "getqueue",
+            "name_localizations": null,
+            "description": "get queue command",
+            "description_localizations": null,
+            "dm_permission": true,
+            "contexts": null,
+            "integration_types": [
+                0
+            ],
+            "nsfw": false
+        }
+    ]
+}

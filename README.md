@@ -1,5 +1,15 @@
-# bask bot
+# How to use
 
-yes i like
+1.) Build
+```
+npm run build
+```
+2.) Run
+```
+node .
+```
+3.) Publish
+```
+npm run commands:publish
+```
 
-[![wakatime](https://wakatime.com/badge/user/4ad16edf-eadc-48d9-b010-26f275fe0be6/project/04e3256e-b8fe-4dfb-9bd4-85af4fd57965.svg)](https://wakatime.com/badge/user/4ad16edf-eadc-48d9-b010-26f275fe0be6/project/04e3256e-b8fe-4dfb-9bd4-85af4fd57965)
