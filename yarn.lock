@@ -566,6 +566,18 @@
     tough-cookie "^4.1.4"
     undici five
 
+"@distube/ytdl-core@^4.14.3":
+  version "4.14.3"
+  resolved "https://registry.yarnpkg.com/@distube/ytdl-core/-/ytdl-core-4.14.3.tgz#ce862c7f6e68bf60a85a2d17a77a5f9c738f6b53"
+  integrity sha512-z6i5EVGEuKhuvuRNyIqafBSs5aRA28HssnWehCRhEtYrxeFgXImfmpKTjUusHYU5vQt1swSVPVb2JCd22P0CPA==
+  dependencies:
+    http-cookie-agent "^6.0.5"
+    m3u8stream "^0.8.6"
+    miniget "^4.2.3"
+    sax "^1.4.1"
+    tough-cookie "^4.1.4"
+    undici five
+
 "@distube/ytpl@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@distube/ytpl/-/ytpl-1.2.1.tgz#bb682c97c97cfd1dea2509956c420b553f34fd85"
