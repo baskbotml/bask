@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@sern/cli": "2.0.0-dev.24e97a3.0",
-    "@types/express": "^4.17.14",
+    "@types/express": "^5.0.0",
     "@types/node": "^17.0.25",
     "typescript": "^5.5.4"
   },
