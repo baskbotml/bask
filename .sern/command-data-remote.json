@@ -1,9 +1,9 @@
 {
     "global": [
         {
-            "id": "1270071328065454223",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549591",
+            "id": "1035569484246818876",
+            "application_id": "918823941273968640",
+            "version": "1035663143566843995",
             "default_member_permissions": null,
             "type": 1,
             "name": "volume",
@@ -30,9 +30,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071614733549590",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549592",
+            "id": "1340352708024074330",
+            "application_id": "918823941273968640",
+            "version": "1340352708024074331",
             "default_member_permissions": null,
             "type": 1,
             "name": "todo_queue",
@@ -47,9 +47,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328065454224",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549593",
+            "id": "1033512482322530404",
+            "application_id": "918823941273968640",
+            "version": "1033512963195289700",
             "default_member_permissions": null,
             "type": 1,
             "name": "stop",
@@ -64,9 +64,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328065454225",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549594",
+            "id": "1035649114647560302",
+            "application_id": "918823941273968640",
+            "version": "1035663178236952616",
             "default_member_permissions": null,
             "type": 1,
             "name": "skip",
@@ -81,9 +81,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328577425438",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549595",
+            "id": "1033684711014420480",
+            "application_id": "918823941273968640",
+            "version": "1033684711014420481",
             "default_member_permissions": null,
             "type": 1,
             "name": "shuffle",
@@ -98,9 +98,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328577425439",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549596",
+            "id": "1033512750380486736",
+            "application_id": "918823941273968640",
+            "version": "1033512750380486737",
             "default_member_permissions": null,
             "type": 1,
             "name": "resume",
@@ -115,9 +115,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328577425440",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549597",
+            "id": "1033061343974129756",
+            "application_id": "918823941273968640",
+            "version": "1340352708024074332",
             "default_member_permissions": null,
             "type": 1,
             "name": "play",
@@ -142,9 +142,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328577425441",
-            "application_id": "842030808114266193",
-            "version": "1270071614733549598",
+            "id": "1033512745653506212",
+            "application_id": "918823941273968640",
+            "version": "1033512745653506213",
             "default_member_permissions": null,
             "type": 1,
             "name": "pause",
@@ -159,9 +159,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328577425442",
-            "application_id": "842030808114266193",
-            "version": "1270071615073419358",
+            "id": "1033472861828038687",
+            "application_id": "918823941273968640",
+            "version": "1035663232641290262",
             "default_member_permissions": null,
             "type": 1,
             "name": "lyrics",
@@ -176,9 +176,9 @@
             "nsfw": false
         },
         {
-            "id": "1270071328577425443",
-            "application_id": "842030808114266193",
-            "version": "1270071615073419359",
+            "id": "1033464060206927953",
+            "application_id": "918823941273968640",
+            "version": "1033464060206927954",
             "default_member_permissions": null,
             "type": 1,
             "name": "loop",

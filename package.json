@@ -25,7 +25,7 @@
     "@distube/spotify": "^2.0.2",
     "@distube/youtube": "^1.0.4",
     "@distube/yt-dlp": "^2.0.1",
-    "@distube/ytdl-core": "^4.16.4",
+    "@distube/ytdl-core": "^4.16.5",
     "@sern/handler": "^4.2.2",
     "@sern/publisher": "^1.1.2",
     "axios": "^1.7.9",

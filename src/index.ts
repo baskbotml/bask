@@ -3,11 +3,11 @@ import { makeDependencies, Sern } from '@sern/handler';
 import "dotenv/config"
 import { DisTube, Events } from "distube";
 import { SpotifyPlugin } from "@distube/spotify";
-import { YtDlpPlugin } from "@distube/yt-dlp";
 import { SoundCloudPlugin } from "@distube/soundcloud";
 import mongoose from 'mongoose';
 import { db as distubeerror } from './schemas/distubeError.js';
 import { Publisher } from '@sern/publisher';
+import { YtDlpPlugin } from '@distube/yt-dlp';
 import { YouTubePlugin } from '@distube/youtube';
 
 const client = new Client({
@@ -25,6 +25,7 @@ mongoose.connect(process.env.MONGODB as string).then(() => console.log('Connecte
 export const distube = new DisTube(client, {
     plugins: [
         new YouTubePlugin(),
+        new YtDlpPlugin({ update: true }),
         new SoundCloudPlugin(),
         new SpotifyPlugin({
             api: {
