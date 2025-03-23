@@ -25,7 +25,6 @@ mongoose.connect(process.env.MONGODB as string).then(() => console.log('Connecte
 export const distube = new DisTube(client, {
     plugins: [
         new YouTubePlugin(),
-        new YtDlpPlugin({ update: true }),
         new SoundCloudPlugin(),
         new SpotifyPlugin({
             api: {
@@ -33,6 +32,7 @@ export const distube = new DisTube(client, {
                 clientSecret: process.env.SPOTIFY_SECRET as string
             },
         }),
+        new YtDlpPlugin(),
     ],
     emitAddSongWhenCreatingQueue: false,
     joinNewVoiceChannel: false,
